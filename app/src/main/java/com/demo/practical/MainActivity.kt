@@ -1,11 +1,18 @@
 package com.demo.practical
 
+import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.WindowManager
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
+import by.dzmitry_lakisau.month_year_picker_dialog.MonthYearPickerDialog
 import com.demo.practical.adapter.MoviesAdapter
 import com.demo.practical.databinding.ActivityMainBinding
+import com.demo.practical.databinding.CalenderAlertDailogBinding
 import com.demo.practical.model.MoviesList
 import com.demo.practical.network.ApiInterface
 import com.demo.practical.network.Responce
@@ -35,8 +42,16 @@ class MainActivity : AppCompatActivity() {
         mViewModel.getMovie()
         observeMoviesList()
 
+        mBinding.yearPicker.setOnClickListener {
+            yearPicker()
+        }
+
 
     }
+
+    private fun yearPicker() {
+
+        }
 
     private fun observeMoviesList() {
         mViewModel.movieList.observe(this){
@@ -64,4 +79,5 @@ class MainActivity : AppCompatActivity() {
         mList.removeAt(position)
         mAdapter.notifyItemRemoved(position)
     }
+
 }

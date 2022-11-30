@@ -22,7 +22,5 @@ class MoviesRepo(val mApi : ApiInterface , val mContext: Context) {
                 )
             )
         }
-
     }
-
 }
